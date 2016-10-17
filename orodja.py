@@ -3,6 +3,7 @@ import os
 import requests
 import sys
 
+#testiram, kaj bo (GitHub)
 
 def pripravi_imenik(ime_datoteke):
     '''Če še ne obstaja, pripravi prazen imenik za dano datoteko.'''
