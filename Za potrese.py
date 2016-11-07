@@ -21,7 +21,9 @@ def iskanje():
         r'">(?P<globina>(\d+))<.*?'
         r'">(?P<magnituda>(\d.\d))</.*?'
         r';(?P<regija>(.*?))</.*?'
-        #</td><td id="reg0" class="tb_region" >&#160;NEAR THE COAST OF WESTERN TURKEY</td><td class="comment updatetimeno" id="upd0" style="text-align:right;">2016-10-15 07:28</td></tr>
+        r'">(\d.{4})-(\d.{2})-(?P<lok_dan>(\d.{2})).*?'
+        r' (?P<lok_ura>(\d{2})):(\d{2})</.*?'
+        #</T;">2016-10-15 07:28</td></tr>
         , flags=re.DOTALL
     )
 
