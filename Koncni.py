@@ -15,15 +15,17 @@ def pocisti(potres):
     podatki['id'] = int(podatki['id'])
     podatki['leto'] = int(podatki['leto'])
     podatki['mesec'] = int(podatki['mesec'])
+    podatki['SIR'] = str(podatki['SIR'])
+    podatki['DOL'] = str(podatki['DOL'])
     return podatki
 
 regex_potresa = re.compile(
         r'<tr id="(?P<id>(\d{6}))".*?'
         r'>(?P<leto>(\d{4}))-(?P<mesec>(\d{2}))-(?P<dan>(\d{2})).*?'
         r';(?P<ura>(\d{2})):(?P<minuta>(\d{2})):(?P<sekunda>(\d{2}.\d))<.*?'
-        r'>(?P<sirina>(\d{2}.\d{2}))&.*?'
+        r'>(?P<sirina>(\d{1,2}.\d{2}))&.*?'
         r'">(?P<SIR>([NS]))&.*?'
-        r'>(?P<dolzina>(\d{2}.\d{2}))&.*?'
+        r'>(?P<dolzina>(\d{1,3}.\d{2}))&.*?'
         r'">(?P<DOL>([WE]))&.*?'
         r'">(?P<globina>(\d+))<.*?'
         r'">(?P<magnituda>(\d.\d))</.*?'
@@ -40,7 +42,7 @@ def izloci_podatke(imenik):
     return potresi
 
 potresi = izloci_podatke('Potresi/')
-orodja.zapisi_tabelo(potresi, ['id', 'leto', 'mesec', 'dan', 'ura', 'minuta', 'sekunda', 'DOL', 'dolzina', 'SIR', 'sirina', 'globina', 'magnituda', 'regija'], 'potresi_koncni.csv')
+orodja.zapisi_tabelo(potresi, ['id', 'leto', 'mesec', 'dan', 'ura', 'minuta', 'sekunda', 'DOL', 'dolzina', 'SIR', 'sirina', 'globina', 'magnituda', 'regija'], 'potresi_potresi.csv')
 
 # =================== K O N E C   D O K U M E N T A ============================
 # =============== samo še neke stvari od prej so spodaj ========================
